@@ -667,6 +667,42 @@
     font-weight: 600;
 }
 
+.house-info {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.house-info h2 {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    color: var(--azul-tejo);
+}
+
+.house-features {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
+
+.house-features li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    color: var(--cinza-texto);
+    background: #f9f9f9;
+    padding: 14px 16px;
+    border-radius: 10px;
+}
+
+.house-features i {
+    color: var(--azul-tejo);
+    font-size: 1.1rem;
+    min-width: 20px;
+}
 
 
     </style>
@@ -731,6 +767,21 @@
             </div>
         </div>
     </section>
+<section class="house-info">
+    <h2>🏡 Sobre a casa</h2>
+
+    <ul class="house-features">
+        <li><i class="fas fa-bed"></i> <strong>3 quartos</strong> — 2 de casal e 1 de solteiro</li>
+        <li><i class="fas fa-bath"></i> <strong>2 casas de banho</strong> funcionais e bem cuidadas</li>
+        <li><i class="fas fa-couch"></i> <strong>Sala de estar</strong> confortável e luminosa</li>
+        <li><i class="fas fa-utensils"></i> <strong>Cozinha totalmente equipada</strong> (pronta a usar)</li>
+        <li><i class="fas fa-home"></i> <strong>Marquise</strong> agradável para refeições ou descanso</li>
+        <li><i class="fas fa-wifi"></i> <strong>Wi-Fi gratuito</strong> em toda a casa</li>
+        <li><i class="fas fa-tv"></i> <strong>TV por cabo</strong></li>
+        <li><i class="fas fa-check-circle"></i> Casa <strong>totalmente equipada</strong> e pronta a receber hóspedes</li>
+        <li><i class="fas fa-thumbs-up"></i> <strong>Boas áreas</strong>, excelente estado de conservação e ambiente acolhedor</li>
+    </ul>
+</section>
 
     <main>
         <aside class="sidebar">
