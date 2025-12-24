@@ -798,6 +798,54 @@
         width: 100%;
     }
 }
+/* === GALERIA === */
+.gallery img {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* === LIGHTBOX === */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+}
+
+.lightbox.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lightbox img {
+    max-width: 92%;
+    max-height: 92%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    animation: zoomIn 0.35s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
 
     </style>
@@ -1115,6 +1163,11 @@
                 
             </div>
         </section>
+        <!-- === LIGHTBOX GALERIA === -->
+<div id="lightbox" class="lightbox">
+    <img id="lightbox-img" src="" alt="">
+</div>
+
     </main>
 
     <footer>
@@ -1374,6 +1427,34 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     showSlide(index);
+});
+// === LIGHTBOX GALERIA ===
+document.addEventListener('DOMContentLoaded', function () {
+    const images = document.querySelectorAll('.gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    images.forEach(img => {
+        img.addEventListener('click', function () {
+            lightboxImg.src = this.src;
+            lightboxImg.alt = this.alt;
+            lightbox.classList.add('active');
+        });
+    });
+
+    // Fecha ao clicar no fundo
+    lightbox.addEventListener('click', function () {
+        lightbox.classList.remove('active');
+        lightboxImg.src = '';
+    });
+
+    // Fecha com ESC
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            lightbox.classList.remove('active');
+            lightboxImg.src = '';
+        }
+    });
 });
 
     </script>
