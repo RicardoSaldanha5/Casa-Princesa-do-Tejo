@@ -702,6 +702,102 @@
     font-size: 1.1rem;
     min-width: 20px;
 }
+.places-highlight {
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.places-highlight h2 {
+    color: var(--azul-tejo);
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.places-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.place-slide {
+    display: none;
+    align-items: center;
+    gap: 30px;
+    animation: slideIn 0.5s ease;
+}
+
+.place-slide.active {
+    display: flex;
+}
+
+.place-slide img {
+    width: 45%;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.place-info {
+    width: 55%;
+}
+
+.place-info h3 {
+    color: var(--azul-tejo);
+    margin-bottom: 12px;
+}
+
+.place-info p {
+    color: var(--cinza-texto);
+    line-height: 1.6;
+}
+
+.places-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.places-controls button {
+    background: var(--azul-tejo);
+    color: var(--branco);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+#place-counter {
+    font-size: 0.95rem;
+    color: var(--cinza-texto);
+}
+
+/* Animação lateral (direita) */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 📱 Mobile */
+@media (max-width: 768px) {
+    .place-slide {
+        flex-direction: column;
+    }
+
+    .place-slide img,
+    .place-info {
+        width: 100%;
+    }
+}
 
 
     </style>
@@ -790,6 +886,50 @@
                 <p>Bem-vindo à Trafaria, carinhosamente conhecida como a <strong>“Princesa do Tejo”</strong>! Esta aldeia ribeirinha, situada na Margem Sul, oferece um raro equilíbrio entre a tranquilidade do mar, a beleza do rio e a proximidade com Lisboa. Aqui, o tempo desacelera e a história respira — desde os pescadores que moldaram a sua identidade até à sua ligação simbólica com os Descobrimentos, visíveis ao fundo em Belém.</p>
             </div>
         </aside>
+<section class="places-highlight">
+    <h2>🌍 Pontos de Interesse nas Redondezas</h2>
+
+    <div class="places-carousel">
+        <div class="place-slide active">
+            <img src="images/trafaria.jpg" alt="Trafaria">
+            <div class="place-info">
+                <h3>1. Trafaria</h3>
+                <p>
+                    Aldeia ribeirinha cheia de autenticidade, conhecida pela sua ligação ao Tejo,
+                    ambiente tranquilo e excelentes restaurantes de peixe fresco.
+                </p>
+            </div>
+        </div>
+
+        <div class="place-slide">
+            <img src="images/caparica.jpg" alt="Praias da Caparica">
+            <div class="place-info">
+                <h3>2. Praias da Caparica</h3>
+                <p>
+                    Extensa linha de praias de areia dourada, ideais para famílias, surfistas
+                    e amantes de longos passeios junto ao mar.
+                </p>
+            </div>
+        </div>
+
+        <div class="place-slide">
+            <img src="images/belem.jpg" alt="Belém">
+            <div class="place-info">
+                <h3>3. Belém</h3>
+                <p>
+                    Zona histórica icónica de Lisboa, com monumentos como o Mosteiro dos Jerónimos,
+                    Torre de Belém e os famosos Pastéis de Belém.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="places-controls">
+        <button id="prev-place">‹</button>
+        <span id="place-counter">1 de 3</span>
+        <button id="next-place">›</button>
+    </div>
+</section>
 
         <section id="location">
             <div class="inner-container">
@@ -1167,6 +1307,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.place-slide');
+    const counter = document.getElementById('place-counter');
+    const prev = document.getElementById('prev-place');
+    const next = document.getElementById('next-place');
+
+    let index = 0;
+
+    function showSlide(i) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[i].classList.add('active');
+        counter.textContent = `${i + 1} de ${slides.length}`;
+    }
+
+    prev.addEventListener('click', () => {
+        index = index > 0 ? index - 1 : slides.length - 1;
+        showSlide(index);
+    });
+
+    next.addEventListener('click', () => {
+        index = index < slides.length - 1 ? index + 1 : 0;
+        showSlide(index);
+    });
+
+    showSlide(index);
+});
 
     </script>
 </body>
