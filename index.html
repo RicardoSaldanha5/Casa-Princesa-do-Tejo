@@ -1514,21 +1514,22 @@ document.addEventListener('DOMContentLoaded', function () {
     const btn = document.getElementById('audio-toggle');
     const audio = document.getElementById('ambient-audio');
 
-    let isPlaying = false; // áudio inativo no início
+    // Estado inicial: parado (mute visual)
+    btn.innerHTML = '<i class="fas fa-volume-mute"></i>';
 
     btn.addEventListener('click', function () {
-        if (!isPlaying) {
-            audio.play(); // inicia o áudio
+
+        if (audio.paused) {
+            audio.play();
             btn.innerHTML = '<i class="fas fa-volume-up"></i>';
         } else {
-            audio.pause(); // pausa o áudio
+            audio.pause();
             btn.innerHTML = '<i class="fas fa-volume-mute"></i>';
         }
 
-        isPlaying = !isPlaying;
     });
-
 });
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const slides = document.querySelectorAll('.place-slide');
