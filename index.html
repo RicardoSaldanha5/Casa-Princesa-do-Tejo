@@ -899,6 +899,39 @@
         padding: 35px 25px;
     }
 }
+.simple-route-btn {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #0b5ed7;
+    color: #fff;
+    border: none;
+    padding: 14px 26px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 10000;
+    transition: background 0.3s ease;
+}
+
+.simple-route-btn:hover {
+    background: #074bb5;
+}
+
+@media (max-width: 768px) {
+    .simple-route-btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .simple-route-btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+}
 
 
     </style>
@@ -1130,6 +1163,13 @@
                 </div>
             </div>
         </section>
+    
+<!-- BOTÃO SIMPLES PARA ACEDER À PÁGINA DE ROTAS -->
+<button id="open-route-btn" class="simple-route-btn">
+    Como chegar desde o Aeroporto
+</button>
+
+
 
         <!-- Restante conteúdo mantido igual (regras, segurança, história, etc.) -->
         <!-- (Omitido por brevidade, mas está intacto no ficheiro completo) -->
@@ -1543,6 +1583,10 @@ document.addEventListener('DOMContentLoaded', function () {
             lightboxImg.src = '';
         }
     });
+});
+document.getElementById('open-route-btn').addEventListener('click', function () {
+    // Abre a página de rotas numa nova aba ou na mesma janela
+    window.location.href = 'rota-desde-aeroporto.html'; // substitui com o nome real da página
 });
 
     </script>
