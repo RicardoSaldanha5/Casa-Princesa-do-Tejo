@@ -846,6 +846,59 @@
         opacity: 1;
     }
 }
+/* === SECÇÃO ANFITRIÕES === */
+.hosts-section {
+    padding: 70px 0;
+    background: linear-gradient(180deg, #ffffff, #f4f6f8);
+}
+
+.hosts-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 45px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.hosts-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.hosts-header i {
+    font-size: 3rem;
+    color: var(--azul-tejo);
+    margin-bottom: 10px;
+}
+
+.hosts-header h2 {
+    color: var(--azul-tejo);
+    margin: 0;
+}
+
+.hosts-names {
+    font-weight: 700;
+    color: var(--ouro-suave);
+    font-size: 1.05rem;
+    margin-bottom: 22px;
+}
+
+.hosts-card p {
+    color: var(--cinza-texto);
+    line-height: 1.75;
+    margin-bottom: 14px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .hosts-card {
+        padding: 35px 25px;
+    }
+}
 
 
     </style>
@@ -925,6 +978,41 @@
         <li><i class="fas fa-check-circle"></i> Casa <strong>totalmente equipada</strong> e pronta a receber hóspedes</li>
         <li><i class="fas fa-thumbs-up"></i> <strong>Boas áreas</strong>, excelente estado de conservação e ambiente acolhedor e familiar</li>
     </ul>
+</section>
+<section id="anfitrioes" class="hosts-section">
+    <div class="inner-container">
+        <div class="hosts-card">
+
+            <div class="hosts-header">
+                <i class="fas fa-home-heart"></i>
+                <h2>Os seus anfitriões</h2>
+            </div>
+
+            <p class="hosts-names">
+                Viriato de Carvalho &nbsp;•&nbsp; Rosa Carvalho
+            </p>
+
+            <p>
+                Somos um casal profundamente ligado à vila da Trafaria, o lugar onde crescemos
+                e ao qual pertencemos. Receber hóspedes é, para nós, uma forma especial de
+                partilhar a história, a beleza e a tranquilidade desta terra única, onde o rio
+                e o mar se encontram.
+            </p>
+
+            <p>
+                Gostamos de acolher cada visitante com atenção e cuidado, ajudando a descobrir
+                os sabores da gastronomia local, as praias da Caparica, os passeios ribeirinhos
+                e os pequenos segredos que só quem cá vive conhece.
+            </p>
+
+            <p>
+                A <strong>Casa Princesa do Tejo</strong> foi preparada com carinho para que se sinta
+                verdadeiramente em casa — um espaço confortável, familiar e autêntico,
+                ideal para descansar, explorar e criar boas memórias.
+            </p>
+
+        </div>
+    </div>
 </section>
 
     <main>
